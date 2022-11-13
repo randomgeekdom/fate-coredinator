@@ -1,0 +1,15 @@
+.sheet{
+  border-style: groove;
+  border-radius: 1rem;
+  border-width: .25rem;
+  border-color: rgb(45, 54, 95);
+  margin: 1rem;
+  padding: .4rem;
+}
+
+.mat-card-header{
+  font-size: large;
+  background-image: linear-gradient(rgb(19, 18, 104), rgb(53, 58, 107), rgb(56, 64, 87));
+  color: white;
+  align-items: flex-start;
+}

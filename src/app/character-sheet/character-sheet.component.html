@@ -1,4 +1,38 @@
+<div class="sheet">
+  <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" >
+    <mat-grid-tile colspan="1">
+      <mat-card>
+        <mat-card-header>ID</mat-card-header>
 
-<br/>
-<br/><br/><br/><br/><br/>
-<p>character-sheet works!</p>
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Name" value="Sushi" />
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <textarea matInput placeholder="Description"></textarea>
+        </mat-form-field>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>Fate Points</mat-card-header>
+
+        <mat-form-field >
+          <mat-label>Current</mat-label>
+          <input matInput placeholder="Current" type="number" />
+        </mat-form-field>
+
+        <mat-form-field >
+          <mat-label>Refresh</mat-label>
+          <input matInput placeholder="Refresh" type="number" />
+        </mat-form-field>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+    <mat-grid-tile>5</mat-grid-tile>
+    <mat-grid-tile>6</mat-grid-tile>
+  </mat-grid-list>
+</div>
