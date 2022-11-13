@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import CharacterSheet from '../models/CharacterSheet';
+import { CharacterSheetInitializerService } from '../services/character-sheet-initializer.service';
 
 @Component({
   selector: 'app-character-sheet',
@@ -6,28 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./character-sheet.component.scss'],
 })
 export class CharacterSheetComponent implements OnInit {
-  Skills: string[] = [
-    'Athletics',
-    'Burglary',
-    'Contacts',
-    'Crafts',
-    'Deceive',
-    'Drive',
-    'Empathy',
-    'Fight',
-    'Investigate',
-    'Lore',
-    'Notice',
-    'Physique',
-    'Provoke',
-    'Rapport',
-    'Resources',
-    'Shoot',
-    'Stealth',
-    'Will',
-  ];
-
-  constructor() {}
+  CharacterSheet: CharacterSheet;
+  constructor(characterSheetInitializer: CharacterSheetInitializerService) {
+    this.CharacterSheet = characterSheetInitializer.Initialize();
+  }
 
   ngOnInit(): void {}
 }
