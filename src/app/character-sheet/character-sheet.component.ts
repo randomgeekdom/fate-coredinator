@@ -20,4 +20,12 @@ export class CharacterSheetComponent implements OnInit {
   onResize(event: any) {
     this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
   }
+
+  get Name(){
+    return this.CharacterSheet.Name;
+  }
+
+  set Name(value: string){
+    this.CharacterSheet.Name = value;
+  }
 }

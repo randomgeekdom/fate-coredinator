@@ -20,6 +20,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 
 
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, CharacterSheetComponent],
@@ -38,7 +39,8 @@ import { CharacterSheetComponent } from './character-sheet/character-sheet.compo
     MatGridListModule,
     MatCardModule,
     MatInputModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
