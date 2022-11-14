@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Aspect from '../models/Aspect';
 import CharacterSheet from '../models/CharacterSheet';
 import { CharacterSheetInitializerService } from '../services/character-sheet-initializer.service';
 
@@ -21,11 +22,16 @@ export class CharacterSheetComponent implements OnInit {
     this.breakpoint = (event.target.innerWidth <= 800) ? 1 : 3;
   }
 
-  get Name(){
-    return this.CharacterSheet.Name;
+  AddAspect(): void{
+    this.CharacterSheet.Aspects.push(new Aspect());
   }
 
-  set Name(value: string){
-    this.CharacterSheet.Name = value;
+  DeleteAspect(id: string){
+    var value = this.CharacterSheet.Aspects.find(x=>x.Id == id);
+    if(!value){
+      return;
+    }
+    var index = this.CharacterSheet.Aspects.indexOf(value);
+    this.CharacterSheet.Aspects.splice(index, 1);
   }
 }

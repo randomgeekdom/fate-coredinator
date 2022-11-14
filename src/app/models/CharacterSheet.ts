@@ -1,3 +1,4 @@
+import Aspect from "./Aspect";
 import CharacterSkill from "./CharacterSkill";
 import Consequence from "./Consequence";
 import StressTrack from "./StressTrack";
@@ -9,7 +10,7 @@ export default class CharacterSheet{
   Refresh = 3;
   CurrentFatePoints = 3;
   Extras = "";
-  Aspects: string[] = [];
+  Aspects: Aspect[] = [];
   Skills: CharacterSkill[] = [];
   Stunts: Stunt[] = [];
   Consequences: Consequence[] = [];

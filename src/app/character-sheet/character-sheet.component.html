@@ -1,17 +1,25 @@
 <div class="sheet">
-  <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" >
-    <mat-grid-tile colspan="1">
+  <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)">
+    <mat-grid-tile>
       <mat-card>
         <mat-card-header>ID</mat-card-header>
 
         <mat-form-field appearance="fill">
           <mat-label>Name</mat-label>
-          <input matInput placeholder="Name" [(ngModel)]="CharacterSheet.Name" />
+          <input
+            matInput
+            placeholder="Name"
+            [(ngModel)]="CharacterSheet.Name"
+          />
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Description</mat-label>
-          <textarea matInput placeholder="Description" [(ngModel)]="CharacterSheet.Description" ></textarea>
+          <textarea
+            matInput
+            placeholder="Description"
+            [(ngModel)]="CharacterSheet.Description"
+          ></textarea>
         </mat-form-field>
       </mat-card>
     </mat-grid-tile>
@@ -19,18 +27,41 @@
       <mat-card>
         <mat-card-header>Fate Points</mat-card-header>
 
-        <mat-form-field >
+        <mat-form-field>
           <mat-label>Current</mat-label>
-          <input matInput placeholder="Current" type="number" [(ngModel)]="CharacterSheet.CurrentFatePoints" />
+          <input
+            matInput
+            placeholder="Current"
+            type="number"
+            [(ngModel)]="CharacterSheet.CurrentFatePoints"
+          />
         </mat-form-field>
 
-        <mat-form-field >
+        <mat-form-field>
           <mat-label>Refresh</mat-label>
-          <input matInput placeholder="Refresh" type="number" [(ngModel)]="CharacterSheet.Refresh" />
+          <input
+            matInput
+            placeholder="Refresh"
+            type="number"
+            [(ngModel)]="CharacterSheet.Refresh"
+          />
         </mat-form-field>
       </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>Aspects</mat-card-header>
+        <mat-list>
+          <mat-list-item *ngFor="let aspect of CharacterSheet.Aspects">
+            <input matInput type="text" [(ngModel)]="aspect.Text"/>
+            <button mat-button  color="warn" (click)="DeleteAspect(aspect.Id)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+        <button mat-raised-button (click)="AddAspect()">Add Aspect</button>
+      </mat-card>
+    </mat-grid-tile>
     <mat-grid-tile>4</mat-grid-tile>
     <mat-grid-tile>5</mat-grid-tile>
     <mat-grid-tile>6</mat-grid-tile>
