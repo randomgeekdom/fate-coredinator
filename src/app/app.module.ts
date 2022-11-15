@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
@@ -40,7 +41,7 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatInputModule,
     MatExpansionModule,
-    FormsModule
+    FormsModule,MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

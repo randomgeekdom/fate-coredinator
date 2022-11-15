@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Aspect from '../models/Aspect';
 import CharacterSheet from '../models/CharacterSheet';
+import CharacterSkill from '../models/CharacterSkill';
 import { CharacterSheetInitializerService } from '../services/character-sheet-initializer.service';
 
 @Component({
@@ -33,5 +34,10 @@ export class CharacterSheetComponent implements OnInit {
     }
     var index = this.CharacterSheet.Aspects.indexOf(value);
     this.CharacterSheet.Aspects.splice(index, 1);
+  }
+
+  get OrderedSkills(): CharacterSkill[]
+  {
+    return this.CharacterSheet.Skills.sort(x=>x.Value * -1);
   }
 }
