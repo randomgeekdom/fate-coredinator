@@ -1,26 +1,28 @@
 <div class="sheet">
   <mat-tab-group>
     <mat-tab label="ID">
-
       <mat-card>
+        <form class="example-form" >
+          <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              placeholder="Name"
+              [(ngModel)]="CharacterSheet.Name"
+              name="Name"
+            />
+          </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Name</mat-label>
-          <input
-            matInput
-            placeholder="Name"
-            [(ngModel)]="CharacterSheet.Name"
-          />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Description</mat-label>
-          <textarea
-            matInput
-            placeholder="Description"
-            [(ngModel)]="CharacterSheet.Description"
-          ></textarea>
-        </mat-form-field>
+          <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea
+              matInput
+              placeholder="Description"
+              [(ngModel)]="CharacterSheet.Description"
+              name="Description"
+            ></textarea>
+          </mat-form-field>
+        </form>
       </mat-card>
 
       <mat-card>
@@ -35,7 +37,7 @@
             [(ngModel)]="CharacterSheet.CurrentFatePoints"
           />
         </mat-form-field>
-
+        of
         <mat-form-field>
           <mat-label>Refresh</mat-label>
           <input
@@ -46,7 +48,6 @@
           />
         </mat-form-field>
       </mat-card>
-
       <mat-card>
         <mat-card-header>Aspects</mat-card-header>
         <mat-list>
@@ -66,17 +67,19 @@
       </mat-card>
     </mat-tab>
     <mat-tab label="Skills">
-      <mat-list>
-        <mat-list-item *ngFor="let skill of OrderedSkills">
-          <mat-label>{{ skill.Name }}</mat-label>
-          <input
-            placeholder="Skill Value"
-            matInput
-            type="number"
-            [(ngModel)]="skill.Value"
-          />
-        </mat-list-item>
-      </mat-list>
+      <mat-card>
+        <mat-list>
+          <mat-list-item *ngFor="let skill of OrderedSkills">
+            <mat-label>{{ skill.Name }}</mat-label>
+            <input
+              placeholder="Skill Value"
+              matInput
+              type="number"
+              [(ngModel)]="skill.Value"
+            />
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
     </mat-tab>
     <mat-tab label="Third"> Content 3 </mat-tab>
   </mat-tab-group>
