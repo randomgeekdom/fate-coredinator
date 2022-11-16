@@ -2,7 +2,7 @@
   <mat-tab-group>
     <mat-tab label="ID">
       <mat-card>
-        <form class="example-form" >
+        <form class="example-form">
           <mat-form-field appearance="fill">
             <mat-label>Name</mat-label>
             <input
@@ -72,6 +72,7 @@
           <mat-list-item *ngFor="let skill of OrderedSkills">
             <mat-label>{{ skill.Name }}</mat-label>
             <input
+            class="right-align"
               placeholder="Skill Value"
               matInput
               type="number"
@@ -81,6 +82,24 @@
         </mat-list>
       </mat-card>
     </mat-tab>
-    <mat-tab label="Third"> Content 3 </mat-tab>
+    <mat-tab label="Stunts and Extras">
+      <mat-card>
+        <mat-card-header>Stunts</mat-card-header>
+        <mat-list>
+          <mat-list-item *ngFor="let stunt of CharacterSheet.Stunts">
+            <button mat-button color="warn" (click)="DeleteStunt(stunt.Id)">
+              <mat-icon>close</mat-icon>
+            </button>
+            <input
+              placeholder="Stunt Text"
+              matInput
+              type="text"
+              [(ngModel)]="stunt.Name"
+            />
+          </mat-list-item>
+        </mat-list>
+        <button mat-raised-button (click)="AddStunt()">Add Stunt</button>
+      </mat-card>
+    </mat-tab>
   </mat-tab-group>
 </div>

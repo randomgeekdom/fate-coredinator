@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Aspect from '../models/Aspect';
 import CharacterSheet from '../models/CharacterSheet';
 import CharacterSkill from '../models/CharacterSkill';
+import Stunt from '../models/Stunt';
 import { CharacterSheetInitializerService } from '../services/character-sheet-initializer.service';
 
 @Component({
@@ -34,6 +35,19 @@ export class CharacterSheetComponent implements OnInit {
     }
     var index = this.CharacterSheet.Aspects.indexOf(value);
     this.CharacterSheet.Aspects.splice(index, 1);
+  }
+
+  AddStunt(): void{
+    this.CharacterSheet.Stunts.push(new Stunt());
+  }
+
+  DeleteStunt(id: string){
+    var value = this.CharacterSheet.Stunts.find(x=>x.Id == id);
+    if(!value){
+      return;
+    }
+    var index = this.CharacterSheet.Stunts.indexOf(value);
+    this.CharacterSheet.Stunts.splice(index, 1);
   }
 
   get OrderedSkills(): CharacterSkill[]
