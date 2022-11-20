@@ -50,6 +50,15 @@ export class CharacterSheetComponent implements OnInit {
     this.CharacterSheet.Stunts.splice(index, 1);
   }
 
+  DeleteSkill(name: string){
+    var value = this.CharacterSheet.Skills.find(x=>x.Name == name);
+    if(!value){
+      return;
+    }
+    var index = this.CharacterSheet.Skills.indexOf(value);
+    this.CharacterSheet.Skills.splice(index, 1);
+  }
+
   get OrderedSkills(): CharacterSkill[]
   {
     return this.CharacterSheet.Skills.sort(x=>x.Value * -1);

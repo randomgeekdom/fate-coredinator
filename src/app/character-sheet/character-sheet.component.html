@@ -70,6 +70,9 @@
       <mat-card>
         <mat-list>
           <mat-list-item *ngFor="let skill of OrderedSkills">
+            <button mat-button color="warn" (click)="DeleteSkill(skill.Name)">
+              <mat-icon>close</mat-icon>
+            </button>
             <mat-label>{{ skill.Name }}</mat-label>
             <input
             class="right-align"
