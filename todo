@@ -1,13 +1,16 @@
 Add new fields to charactersheet
 
-Deploy to web
-
 buy domain name
-
-Save to local storage
 
 Give an id to charactersheet (for later reload)
 
 Delete Skill
 
 Add Custom skill
+
+Switch to bulma/bootstrap/tailwind (pick one)
+
+
+
+FOR LATER
+Save to local storage
