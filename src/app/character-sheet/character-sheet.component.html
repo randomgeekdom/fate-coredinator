@@ -1,108 +1,160 @@
-<div class="sheet">
-  <mat-tab-group>
-    <mat-tab label="ID">
-      <mat-card>
-        <form class="example-form">
-          <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input
-              matInput
-              placeholder="Name"
-              [(ngModel)]="CharacterSheet.Name"
-              name="Name"
-            />
-          </mat-form-field>
+<div class="flex flex-wrap gap-2">
+  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <h1>ID</h1>
+    <form>
+      <div class="form-group mb-6">
+        <label class="form-control" for="name">Name</label>
+        <input
+          id="name"
+          class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          placeholder="Name"
+          [(ngModel)]="CharacterSheet.Name"
+          name="Name"
+        />
 
-          <mat-form-field>
-            <mat-label>Description</mat-label>
-            <textarea
-              matInput
-              placeholder="Description"
-              [(ngModel)]="CharacterSheet.Description"
-              name="Description"
-            ></textarea>
-          </mat-form-field>
-        </form>
-      </mat-card>
+        <label class="form-control" for="description">Description</label>
+        <textarea
+          id="description"
+          class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          placeholder="Description"
+          [(ngModel)]="CharacterSheet.Description"
+          name="Description"
+        ></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <h1>FATE POINTS</h1>
+    <form>
+      <div class="form-group mb-6">
+        <label class="form-control" for="current">Current</label>
+        <input
+          id="current"
+          class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          placeholder="Current"
+          type="number"
+          name="current"
+          [(ngModel)]="CharacterSheet.CurrentFatePoints"
+        />
 
-      <mat-card>
-        <mat-card-header>Fate Points</mat-card-header>
-
-        <mat-form-field>
-          <mat-label>Current</mat-label>
-          <input
-            matInput
-            placeholder="Current"
-            type="number"
-            [(ngModel)]="CharacterSheet.CurrentFatePoints"
-          />
-        </mat-form-field>
-        of
-        <mat-form-field>
-          <mat-label>Refresh</mat-label>
-          <input
-            matInput
-            placeholder="Refresh"
-            type="number"
-            [(ngModel)]="CharacterSheet.Refresh"
-          />
-        </mat-form-field>
-      </mat-card>
-      <mat-card>
-        <mat-card-header>Aspects</mat-card-header>
-        <mat-list>
-          <mat-list-item *ngFor="let aspect of CharacterSheet.Aspects">
+        <label class="form-control" for="refresh">Refresh</label>
+        <input
+          id="refresh"
+          class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          placeholder="Refresh"
+          type="number"
+          [(ngModel)]="CharacterSheet.Refresh"
+          name="refresh"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <h1>ASPECTS</h1>
+    <form>
+      <div class="flex justify-center">
+        <ul
+          class="bg-white rounded-lg border border-gray-200 w-96 text-gray-900"
+        >
+          <li
+            *ngFor="let aspect of CharacterSheet.Aspects"
+            class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"
+          >
             <input
               placeholder="Aspect Text"
-              matInput
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               type="text"
               [(ngModel)]="aspect.Text"
             />
-            <button mat-button color="warn" (click)="DeleteAspect(aspect.Id)">
-              <mat-icon>close</mat-icon>
+            <button
+              type="button"
+              class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              (click)="DeleteAspect(aspect.Id)"
+            >
+              DELETE
             </button>
-          </mat-list-item>
-        </mat-list>
-        <button mat-raised-button (click)="AddAspect()">Add Aspect</button>
-      </mat-card>
-    </mat-tab>
-    <mat-tab label="Skills">
-      <mat-card>
-        <mat-list>
-          <mat-list-item *ngFor="let skill of OrderedSkills">
-            <button mat-button color="warn" (click)="DeleteSkill(skill.Name)">
-              <mat-icon>close</mat-icon>
+          </li>
+        </ul>
+        <button
+          type="button"
+          (click)="AddAspect()"
+          class="bg-blue-600 text-white"
+        >
+          Add Aspect
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <h1>SKILLS</h1>
+    <form>
+      <div class="flex justify-center">
+        <ul
+          class="bg-white rounded-lg border border-gray-200 w-96 text-gray-900"
+        >
+          <li
+            *ngFor="let skill of OrderedSkills"
+            class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"
+          >
+            <div class="form-floating mb-3 xl:w-96">
+              <input
+                [id]="skill.Name"
+                [name]="skill.Name"
+                type="number"
+                class="form-control block text-gray-700 border border-solid border-gray-300 rounded transition ease-in-out m-0"
+                [(ngModel)]="skill.Value"
+              />
+              <label [for]="skill.Name" class="text-gray-700">{{
+                skill.Name
+              }}</label>
+            </div>
+            <button
+              type="button"
+              class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              (click)="DeleteSkill(skill.Name)"
+            >
+              DELETE
             </button>
-            <mat-label>{{ skill.Name }}</mat-label>
-            <input
-            class="right-align"
-              placeholder="Skill Value"
-              matInput
-              type="number"
-              [(ngModel)]="skill.Value"
-            />
-          </mat-list-item>
-        </mat-list>
-      </mat-card>
-    </mat-tab>
-    <mat-tab label="Stunts and Extras">
-      <mat-card>
-        <mat-card-header>Stunts</mat-card-header>
-        <mat-list>
-          <mat-list-item *ngFor="let stunt of CharacterSheet.Stunts">
-            <button mat-button color="warn" (click)="DeleteStunt(stunt.Id)">
-              <mat-icon>close</mat-icon>
-            </button>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </div>
+  <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
+    <h1>STUNTS</h1>
+    <form>
+      <div class="flex justify-center">
+        <ul
+          class="bg-white rounded-lg border border-gray-200 w-96 text-gray-900"
+        >
+          <li
+            *ngFor="let stunt of CharacterSheet.Stunts"
+            class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"
+          >
             <input
               placeholder="Stunt Text"
-              matInput
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               type="text"
               [(ngModel)]="stunt.Name"
             />
-          </mat-list-item>
-        </mat-list>
-        <button mat-raised-button (click)="AddStunt()">Add Stunt</button>
-      </mat-card>
-    </mat-tab>
-  </mat-tab-group>
+            <button
+              type="button"
+              class="inline-block px-6 py-2.5 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+              (click)="DeleteStunt(stunt.Id)"
+            >
+              DELETE
+            </button>
+          </li>
+        </ul>
+        <button
+          type="button"
+          (click)="AddStunt()"
+          class="bg-blue-600 text-white"
+        >
+          Add Stunt
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
