@@ -8,9 +8,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 import { FormsModule } from '@angular/forms';
+import { RandomizeComponent } from './randomize/randomize.component';
 
 @NgModule({
-  declarations: [AppComponent, CharacterSheetComponent],
+  declarations: [AppComponent, CharacterSheetComponent, RandomizeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
